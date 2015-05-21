@@ -1,3 +1,4 @@
+require './summary.rb'
 require './current_conditions.rb'
 require './forecast_ten_day.rb'
 require './sunrise_sunset.rb'
