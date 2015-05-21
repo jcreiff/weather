@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './weather_app.rb'
 
 class WeatherAppTest<Minitest::Test
-
+  
   def test_classes_exist
     assert ConditionsSummary.new(24210)
     assert TenDayForecast.new(24210)
@@ -21,4 +21,13 @@ class WeatherAppTest<Minitest::Test
     a_town = ConditionsSummary.new(24210)
     assert_includes a_town.last_update, "Last Updated on"
   end
+
+  def test_conditions_summary_knows_conditions
+    a_town = ConditionsSummary.new(24210)
+    assert_equal Float, a_town.temperature.class
+    refute_empty a_town.weather
+    assert_equal "%", a_town.humidity[-1]
+    assert_includes a_town.wind, "MPH"
+  end
+
 end

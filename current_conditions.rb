@@ -14,4 +14,21 @@ class ConditionsSummary
   def last_update
     page["current_observation"]["observation_time"]
   end
+
+  def temperature
+    page["current_observation"]["temp_f"]
+  end
+
+  def weather
+    page["current_observation"]["weather"]
+  end
+
+  def humidity
+    page["current_observation"]["relative_humidity"]
+  end
+
+  def wind
+    page["current_observation"]["wind_string"]
+  end
+
 end
