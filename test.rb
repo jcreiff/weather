@@ -12,4 +12,8 @@ class WeatherAppTest<Minitest::Test
     assert ActiveHurricaneList.new(24210)
   end
 
+  def test_conditions_summary_knows_location
+    a_town = ConditionsSummary.new(24210)
+    assert_equal "Abingdon, VA", a_town.location
+  end
 end
