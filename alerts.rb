@@ -1,5 +1,9 @@
-require './summary.rb'
+require 'httparty'
 
-class CurrentAlert < Summary
+class CurrentAlert
 
+  def initialize(zip)
+
+  end
+  
 end

@@ -1,5 +1,9 @@
-require './summary.rb'
+require 'httparty'
 
-class ActiveHurricaneList < Summary
+class ActiveHurricaneList
 
+  def initialize(zip)
+
+  end
+  
 end

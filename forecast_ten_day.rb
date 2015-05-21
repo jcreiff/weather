@@ -1,5 +1,9 @@
-require './summary.rb'
+require 'httparty'
 
-class TenDayForecast < Summary
+class TenDayForecast
+
+  def initialize(zip)
+
+  end
 
 end

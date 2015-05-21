@@ -1,5 +1,9 @@
-require './summary.rb'
+require 'httparty'
 
-class SunriseSunset < Summary
+class SunriseSunset
 
+  def initialize(zip)
+
+  end
+  
 end

@@ -16,4 +16,9 @@ class WeatherAppTest<Minitest::Test
     a_town = ConditionsSummary.new(24210)
     assert_equal "Abingdon, VA", a_town.location
   end
+
+  def test_conditions_summary_knows_last_update
+    a_town = ConditionsSummary.new(24210)
+    assert_includes a_town.last_update, "Last Updated on"
+  end
 end
