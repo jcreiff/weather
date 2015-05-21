@@ -12,4 +12,12 @@ class TenDayForecast
     page["forecast"]["simpleforecast"]["forecastday"][num]["date"]["weekday_short"]
   end
 
+  def high(num)
+    page["forecast"]["simpleforecast"]["forecastday"][num]["high"]["fahrenheit"]
+  end
+
+  def low(num)
+    page["forecast"]["simpleforecast"]["forecastday"][num]["low"]["fahrenheit"]
+  end
+
 end
