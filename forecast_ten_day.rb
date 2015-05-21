@@ -20,4 +20,8 @@ class TenDayForecast
     page["forecast"]["simpleforecast"]["forecastday"][num]["low"]["fahrenheit"]
   end
 
+  def conditions(num)
+    page["forecast"]["simpleforecast"]["forecastday"][num]["conditions"]
+  end
+
 end
