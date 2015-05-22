@@ -40,7 +40,9 @@ class ConditionsSummary
     puts "#{weather}"
     puts "Current temperature is #{temperature}°F - Humidity #{humidity}"
     puts "Wind #{wind}"
-    puts
+  end
+
+  def display_update
     puts "[#{last_update}]"
   end
 
