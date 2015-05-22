@@ -32,6 +32,7 @@ class TenDayForecast
     (0..9).each do |n|
       puts "#{day(n)}:  #{high(n)}  |  #{low(n)}  #{conditions(n)}"
     end
+    puts
   end
 
 end
