@@ -12,8 +12,10 @@ current = ConditionsSummary.new(zip)
 ten_day = TenDayForecast.new(zip)
 sun_times = SunriseSunset.new(zip)
 alert = CurrentAlert.new(zip)
+canes = ActiveHurricaneList.new
 
 puts current.display
 puts sun_times.display
 puts alert.display
 puts ten_day.display
+puts canes.display

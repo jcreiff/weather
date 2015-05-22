@@ -15,4 +15,16 @@ class ActiveHurricaneList
   def ref_url
     page["currenthurricane"][0]["stormInfo"]["wuiurl"]
   end
+
+  def display
+    if storm_info == nil
+      puts "No Hurricanes Currently Active"
+    else
+      puts "Current Active Hurricanes"
+      puts "*" *25
+      puts "Hurricane #{storm_info}"
+      puts "For more information, visit:"
+      puts "#{ref_url}"
+    end
+  end
 end
