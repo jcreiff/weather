@@ -67,5 +67,24 @@ class WeatherAppTest<Minitest::Test
     assert_equal 2, time_of.sunset_minute.length
   end
 
-  
+  # CurrentAlert class tests
+
+  def test_alert_returns_description
+    w_falls = CurrentAlert.new(76301)
+    c_hill = CurrentAlert.new(27514)
+
+    assert_includes w_falls.description, "Warning"
+    refute c_hill.description
+  end
+
+  def test_alert_returns_start_and_stop_times
+    w_falls = CurrentAlert.new(76301)
+
+    assert_equal ":", w_falls.start[1]
+    assert_equal ":", w_falls.stop[1]
+    assert_equal "2015", w_falls.start.split[-1]
+    assert_equal "2015", w_falls.stop.split[-1]
+  end
+
+
 end
