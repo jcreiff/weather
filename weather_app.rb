@@ -10,6 +10,8 @@ zip = gets.chomp
 
 current = ConditionsSummary.new(zip)
 ten_day = TenDayForecast.new(zip)
+sun_times = SunriseSunset.new(zip)
 
 puts current.display
+puts sun_times.display
 puts ten_day.display

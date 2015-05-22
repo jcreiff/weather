@@ -25,4 +25,10 @@ class SunriseSunset
     page["sun_phase"]["sunset"]["minute"]
   end
 
+  def display
+    puts "Sunrise: #{sunrise_hour}:#{sunrise_minute} AM"
+    puts "Sunset: #{sunset_hour}:#{sunset_minute} PM"
+    puts
+  end
+
 end
