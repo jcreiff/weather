@@ -22,4 +22,15 @@ class CurrentAlert
     page["alerts"][0]["expires"]
   end
 
+  def display
+    if description == nil
+      puts "No Local Weather Alerts."
+    else
+      puts "LOCAL WEATHER ALERTS"
+      puts "*" * 20
+      puts "#{description}"
+      puts "From #{start}"
+      puts "Until #{stop}"
+    end
+  end
 end
