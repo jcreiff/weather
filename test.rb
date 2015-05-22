@@ -1,6 +1,11 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './weather_app.rb'
+require './current_conditions.rb'
+require './forecast_ten_day.rb'
+require './sunrise_sunset.rb'
+require './alerts.rb'
+require './hurricanes.rb'
+
 
 class WeatherAppTest<Minitest::Test
 
@@ -26,7 +31,7 @@ class WeatherAppTest<Minitest::Test
 
   def test_conditions_summary_knows_conditions
     a_town = ConditionsSummary.new(24210)
-    assert_equal Float, a_town.temperature.class
+    assert_equal Fixnum, a_town.temperature.class
     refute_empty a_town.weather
     assert_equal "%", a_town.humidity[-1]
     assert_includes a_town.wind, "MPH"

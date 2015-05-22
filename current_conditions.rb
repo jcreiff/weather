@@ -16,7 +16,7 @@ class ConditionsSummary
   end
 
   def temperature
-    page["current_observation"]["temp_f"]
+    page["current_observation"]["temp_f"].to_i
   end
 
   def weather
@@ -28,7 +28,20 @@ class ConditionsSummary
   end
 
   def wind
-    page["current_observation"]["wind_string"]
+    string = page["current_observation"]["wind_string"]
+    string[0] = string[0].downcase
+    string
+  end
+
+  def display
+    puts
+    puts "Current Conditions for #{location}:"
+    puts "-" * (24 + location.length)
+    puts "#{weather}"
+    puts "Current temperature is #{temperature}°F - Humidity #{humidity}"
+    puts "Wind #{wind}"
+    puts
+    puts "[#{last_update}]"
   end
 
 end
