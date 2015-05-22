@@ -13,60 +13,64 @@ class ConditionsSummary
   end
 end
 
+class TenDayForecast
+  def get_data
+    JSON.parse(File.open("ten_day.json").read)
+  end
+end
+
 class WeatherAppTest<Minitest::Test
 
-  def test_classes_exist
-    assert ConditionsSummary.new(24210)
-    assert TenDayForecast.new(24210)
-    assert SunriseSunset.new(24210)
-    assert CurrentAlert.new(24210)
-    assert ActiveHurricaneList.new
-  end
-
-  # ConditionsSummary class tests
-
-  def test_conditions_summary_knows_place
-    sf = ConditionsSummary.new(94101)
-    assert_equal "San Francisco, CA", sf.place
-  end
-
-  def test_conditions_summary_knows_last_update
-    sf = ConditionsSummary.new(94101)
-    assert_equal "Last Updated on May 22, 1:29 PM PDT", sf.last_update
-  end
-
-  def test_conditions_summary_knows_conditions
-    sf = ConditionsSummary.new(94101)
-    assert_equal 62, sf.temperature
-    assert_equal "Overcast", sf.weather
-    assert_equal "79%", sf.humidity
-    assert_equal "from the WSW at 4.0 MPH Gusting to 12.0 MPH", sf.wind
-  end
-
-  # # TenDayForecast class tests
-  #
-  # def test_ten_day_returns_weekday_abbreviations
-  #   forecast = TenDayForecast.new(30322)
-  #   today = forecast.day(0)
-  #   assert_equal 3, today.length
+  # def test_classes_exist
+  #   assert ConditionsSummary.new(24210)
+  #   assert TenDayForecast.new(24210)
+  #   assert SunriseSunset.new(24210)
+  #   assert CurrentAlert.new(24210)
+  #   assert ActiveHurricaneList.new
   # end
   #
-  # def test_ten_day_returns_high_and_low
-  #   forecast = TenDayForecast.new(30322)
-  #   high_today = forecast.high(0)
-  #   low_today = forecast.low(0)
+  # # ConditionsSummary class tests
   #
-  #   assert_equal 2, high_today.length
-  #   assert_equal 2, low_today.length
-  #   assert high_today.to_i > 0
-  #   assert low_today.to_i < 100
+  # def test_conditions_summary_knows_place
+  #   sf = ConditionsSummary.new(94101)
+  #   assert_equal "San Francisco, CA", sf.place
   # end
   #
-  # def test_ten_day_returns_conditions
-  #   forecast = TenDayForecast.new(30322)
-  #   refute_empty forecast.conditions(0)
+  # def test_conditions_summary_knows_last_update
+  #   sf = ConditionsSummary.new(94101)
+  #   assert_equal "Last Updated on May 22, 1:29 PM PDT", sf.last_update
   # end
   #
+  # def test_conditions_summary_knows_conditions
+  #   sf = ConditionsSummary.new(94101)
+  #   assert_equal 62, sf.temperature
+  #   assert_equal "Overcast", sf.weather
+  #   assert_equal "79%", sf.humidity
+  #   assert_equal "from the WSW at 4.0 MPH Gusting to 12.0 MPH", sf.wind
+  # end
+
+  # TenDayForecast class tests
+
+  def test_ten_day_returns_weekday_abbreviations
+    forecast = TenDayForecast.new(94101)
+    today = forecast.day(0)
+    assert_equal "Fri", today
+  end
+
+  def test_ten_day_returns_high_and_low
+    forecast = TenDayForecast.new(94101)
+    high_today = forecast.high(0)
+    low_today = forecast.low(0)
+
+    assert_equal "61", high_today
+    assert_equal "53", low_today
+  end
+
+  def test_ten_day_returns_conditions
+    forecast = TenDayForecast.new(94101)
+    assert_equal "Partly Cloudy", forecast.conditions(0)
+  end
+
   # # SunriseSunset class tests
   #
   # def test_sunrise_sunset_returns_times

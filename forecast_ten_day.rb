@@ -5,7 +5,12 @@ class TenDayForecast
   attr_reader :page
 
   def initialize(location)
-    @page = HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/forecast10day/q/#{location}.json")
+    @location=location
+    @page = get_data
+  end
+
+  def get_data
+    HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/forecast10day/q/#{@location}.json")
   end
 
   def day(num)
