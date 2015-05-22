@@ -25,6 +25,12 @@ class SunriseSunset
   end
 end
 
+class CurrentAlert
+  def get_data
+    JSON.parse(File.open("alert_yes.json").read)
+  end
+end
+
 class WeatherAppTest<Minitest::Test
 
   # def test_classes_exist
@@ -88,25 +94,20 @@ class WeatherAppTest<Minitest::Test
     assert_equal "58", time_of.sunset_minute
   end
 
-  # # CurrentAlert class tests
-  #
-  # def test_alert_returns_description
-  #   w_falls = CurrentAlert.new(76301)
-  #   c_hill = CurrentAlert.new(27514)
-  #
-  #   assert_includes w_falls.description, "Warning"
-  #   refute c_hill.description
-  # end
-  #
-  # def test_alert_returns_start_and_stop_times
-  #   w_falls = CurrentAlert.new(76301)
-  #
-  #   assert_equal ":", w_falls.start[1]
-  #   assert_equal ":", w_falls.stop[1]
-  #   assert_equal "2015", w_falls.start.split[-1]
-  #   assert_equal "2015", w_falls.stop.split[-1]
-  # end
-  #
+  # CurrentAlert class tests
+
+  def test_alert_returns_description
+    w_falls = CurrentAlert.new(76301)
+    assert_equal "Flood Warning", w_falls.description
+  end
+
+  def test_alert_returns_start_and_stop_times
+    w_falls = CurrentAlert.new(76301)
+
+    assert_equal "3:10 PM CDT on May 22, 2015", w_falls.start
+    assert_equal "7:00 AM CDT on May 26, 2015", w_falls.stop
+  end
+
   # # ActiveHurricaneList class tests
   #
   # def test_hurricane_list_returns_storm_name
