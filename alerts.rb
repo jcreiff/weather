@@ -4,8 +4,8 @@ class CurrentAlert
 
   attr_reader :page
 
-  def initialize(zip)
-    @page = HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/alerts/q/#{zip}.json")
+  def initialize(location)
+    @page = HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/alerts/q/#{location}.json")
   end
 
   def description

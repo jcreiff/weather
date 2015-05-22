@@ -4,8 +4,8 @@ class SunriseSunset
 
   attr_reader :page
 
-  def initialize(zip)
-    @page = HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/astronomy/q/#{zip}.json")
+  def initialize(location)
+    @page = HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/astronomy/q/#{location}.json")
   end
 
   def sunrise_hour
