@@ -7,7 +7,7 @@ class ConditionsSummary
     @page = HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/conditions/q/#{location}.json")
   end
 
-  def location
+  def place
     page["current_observation"]["display_location"]["full"]
   end
 
@@ -35,8 +35,8 @@ class ConditionsSummary
 
   def display
     puts
-    puts "Current Conditions for #{location}:"
-    puts "*" * (24 + location.length)
+    puts "Current Conditions for #{place}:"
+    puts "*" * (24 + place.length)
     puts "#{weather}"
     puts "Current temperature is #{temperature}°F - Humidity #{humidity}"
     puts "Wind #{wind}"
