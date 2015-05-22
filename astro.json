@@ -1,0 +1,38 @@
+
+{
+  "response": {
+  "version":"0.1",
+  "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+  "features": {
+  "astronomy": 1
+  }
+	}
+		,	"moon_phase": {
+		"percentIlluminated":"24",
+		"ageOfMoon":"5",
+		"phaseofMoon":"Waxing Crescent",
+		"hemisphere":"South",
+		"current_time": {
+		"hour":"6",
+		"minute":"56"
+		},
+		"sunrise": {
+		"hour":"6",
+		"minute":"45"
+		},
+		"sunset": {
+		"hour":"16",
+		"minute":"58"
+		}
+	},
+	"sun_phase": {
+		"sunrise": {
+		"hour":"6",
+		"minute":"45"
+		},
+		"sunset": {
+		"hour":"16",
+		"minute":"58"
+		}
+	}
+}

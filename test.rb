@@ -19,6 +19,12 @@ class TenDayForecast
   end
 end
 
+class SunriseSunset
+  def get_data
+    JSON.parse(File.open("astro.json").read)
+  end
+end
+
 class WeatherAppTest<Minitest::Test
 
   # def test_classes_exist
@@ -71,17 +77,17 @@ class WeatherAppTest<Minitest::Test
     assert_equal "Partly Cloudy", forecast.conditions(0)
   end
 
-  # # SunriseSunset class tests
-  #
-  # def test_sunrise_sunset_returns_times
-  #   time_of = SunriseSunset.new(27514)
-  #
-  #   assert_equal 1, time_of.sunrise_hour.length
-  #   assert_equal 2, time_of.sunrise_minute.length
-  #   assert_equal 1, time_of.sunset_hour.length
-  #   assert_equal 2, time_of.sunset_minute.length
-  # end
-  #
+  # SunriseSunset class tests
+
+  def test_sunrise_sunset_returns_times
+    time_of = SunriseSunset.new(94101)
+
+    assert_equal "6", time_of.sunrise_hour
+    assert_equal "45", time_of.sunrise_minute
+    assert_equal "4", time_of.sunset_hour
+    assert_equal "58", time_of.sunset_minute
+  end
+
   # # CurrentAlert class tests
   #
   # def test_alert_returns_description
