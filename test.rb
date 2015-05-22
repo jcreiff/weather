@@ -9,7 +9,7 @@ class WeatherAppTest<Minitest::Test
     assert TenDayForecast.new(24210)
     assert SunriseSunset.new(24210)
     assert CurrentAlert.new(24210)
-    assert ActiveHurricaneList.new(24210)
+    assert ActiveHurricaneList.new
   end
 
   # ConditionsSummary class tests
@@ -86,5 +86,16 @@ class WeatherAppTest<Minitest::Test
     assert_equal "2015", w_falls.stop.split[-1]
   end
 
+  # ActiveHurricaneList class tests
+
+  def test_hurricane_list_returns_storm_name
+    list = ActiveHurricaneList.new
+    assert_includes list.storm_info, "Invest"
+  end
+
+  def test_hurricane_list_returns_ref_url
+    list = ActiveHurricaneList.new
+    assert_includes list.ref_url, "http://www.wunderground.com/"
+  end
 
 end
