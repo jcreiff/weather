@@ -31,35 +31,41 @@ class CurrentAlert
   end
 end
 
+class ActiveHurricaneList
+  def get_data
+    JSON.parse(File.open("canes.json").read)
+  end
+end
+
 class WeatherAppTest<Minitest::Test
 
-  # def test_classes_exist
-  #   assert ConditionsSummary.new(24210)
-  #   assert TenDayForecast.new(24210)
-  #   assert SunriseSunset.new(24210)
-  #   assert CurrentAlert.new(24210)
-  #   assert ActiveHurricaneList.new
-  # end
-  #
-  # # ConditionsSummary class tests
-  #
-  # def test_conditions_summary_knows_place
-  #   sf = ConditionsSummary.new(94101)
-  #   assert_equal "San Francisco, CA", sf.place
-  # end
-  #
-  # def test_conditions_summary_knows_last_update
-  #   sf = ConditionsSummary.new(94101)
-  #   assert_equal "Last Updated on May 22, 1:29 PM PDT", sf.last_update
-  # end
-  #
-  # def test_conditions_summary_knows_conditions
-  #   sf = ConditionsSummary.new(94101)
-  #   assert_equal 62, sf.temperature
-  #   assert_equal "Overcast", sf.weather
-  #   assert_equal "79%", sf.humidity
-  #   assert_equal "from the WSW at 4.0 MPH Gusting to 12.0 MPH", sf.wind
-  # end
+  def test_classes_exist
+    assert ConditionsSummary.new(24210)
+    assert TenDayForecast.new(24210)
+    assert SunriseSunset.new(24210)
+    assert CurrentAlert.new(24210)
+    assert ActiveHurricaneList.new
+  end
+
+  # ConditionsSummary class tests
+
+  def test_conditions_summary_knows_place
+    sf = ConditionsSummary.new(94101)
+    assert_equal "San Francisco, CA", sf.place
+  end
+
+  def test_conditions_summary_knows_last_update
+    sf = ConditionsSummary.new(94101)
+    assert_equal "Last Updated on May 22, 1:29 PM PDT", sf.last_update
+  end
+
+  def test_conditions_summary_knows_conditions
+    sf = ConditionsSummary.new(94101)
+    assert_equal 62, sf.temperature
+    assert_equal "Overcast", sf.weather
+    assert_equal "79%", sf.humidity
+    assert_equal "from the WSW at 4.0 MPH Gusting to 12.0 MPH", sf.wind
+  end
 
   # TenDayForecast class tests
 
@@ -108,16 +114,17 @@ class WeatherAppTest<Minitest::Test
     assert_equal "7:00 AM CDT on May 26, 2015", w_falls.stop
   end
 
-  # # ActiveHurricaneList class tests
-  #
-  # def test_hurricane_list_returns_storm_name
-  #   list = ActiveHurricaneList.new
-  #   assert_includes list.storm_info, "Invest"
-  # end
-  #
-  # def test_hurricane_list_returns_ref_url
-  #   list = ActiveHurricaneList.new
-  #   assert_includes list.ref_url, "http://www.wunderground.com/"
-  # end
+  # ActiveHurricaneList class tests
+
+  def test_hurricane_list_returns_storm_name
+    list = ActiveHurricaneList.new
+    assert_equal "Invest 90E", list.storm_info
+  end
+
+
+  def test_hurricane_list_returns_ref_url
+    list = ActiveHurricaneList.new
+    assert_equal "http://www.wunderground.com/hurricane/eastern-pacific/2015/Invest-90E", list.ref_url
+  end
 
 end
