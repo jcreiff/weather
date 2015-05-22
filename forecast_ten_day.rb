@@ -24,4 +24,16 @@ class TenDayForecast
     page["forecast"]["simpleforecast"]["forecastday"][num]["conditions"]
   end
 
+  def display
+    puts "10 Day Forecast"
+    puts "*" * 15
+    puts
+    puts "Day  High | Low"
+    puts "-" * 15
+    (0..9).each do |n|
+      puts "#{day(n)}:  #{high(n)}  |  #{low(n)}  #{conditions(n)}"
+    end
+    puts
+  end
+
 end

@@ -9,5 +9,7 @@ print "Welcome to WeatheReport. Please enter your zipcode: "
 zip = gets.chomp
 
 current = ConditionsSummary.new(zip)
+ten_day = TenDayForecast.new(zip)
 
 puts current.display
+puts ten_day.display

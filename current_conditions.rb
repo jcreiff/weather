@@ -36,7 +36,7 @@ class ConditionsSummary
   def display
     puts
     puts "Current Conditions for #{location}:"
-    puts "-" * (24 + location.length)
+    puts "*" * (24 + location.length)
     puts "#{weather}"
     puts "Current temperature is #{temperature}°F - Humidity #{humidity}"
     puts "Wind #{wind}"
