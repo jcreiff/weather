@@ -56,4 +56,16 @@ class WeatherAppTest<Minitest::Test
     refute_empty forecast.conditions(0)
   end
 
+  # SunriseSunset class tests
+
+  def test_sunrise_sunset_returns_times
+    time_of = SunriseSunset.new(27514)
+
+    assert_equal 1, time_of.sunrise_hour.length
+    assert_equal 2, time_of.sunrise_minute.length
+    assert_equal 1, time_of.sunset_hour.length
+    assert_equal 2, time_of.sunset_minute.length
+  end
+
+  
 end
