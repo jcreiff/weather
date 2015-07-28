@@ -18,4 +18,4 @@ WeatheReport simplifies your forecast for you. Here's how:
   
 [*All weather info courtesy of [Weather Underground](wunderground.com)*]
 
-######*Assignment from Week 1 of The Iron Yard's Ruby on Rails course (Durham)*
+######*Assignment from Week 3 of The Iron Yard's Ruby on Rails course (Durham)*
